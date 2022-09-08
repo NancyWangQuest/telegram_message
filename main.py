@@ -9,14 +9,14 @@ from telethon.sync import TelegramClient
 
 def sendMessage():
 
-    api_id = 18109474
+    api_id = os.getenv('TG_APP_ID')
 
     api_hash = os.getenv('TG_APP_HASH')
 
-    to_user_name = os.getenv('TG_TO_USER_NAME').split(',')
+    to_user_name = os.getenv('TG_TO_USER_NAME')
 
-    # message_content = os.getenv('TG_MESSAGE_CONTENT')
-    message_content = '/checkin'
+    message_content = os.getenv('TG_MESSAGE_CONTENT')
+    # message_content = '/checkin'
 
     session_name = 'unut_CheckIn'
 
