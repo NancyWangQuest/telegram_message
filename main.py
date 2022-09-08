@@ -17,7 +17,7 @@ def sendMessage():
 
     message_content = os.getenv('TG_MESSAGE_CONTENT')
 
-    session_name = 'PLONGJ_CheckIn'
+    session_name = 'unut_CheckIn'
 
     client = TelegramClient(session_name, api_id, api_hash)
     client.start()
