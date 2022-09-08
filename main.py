@@ -9,24 +9,24 @@ from telethon.sync import TelegramClient
 
 def sendMessage():
 
-    api_id = os.getenv('TG_APP_ID')
+    api_id = 18109474
 
     api_hash = os.getenv('TG_APP_HASH')
 
-    to_user_name_arr = os.getenv('TG_TO_USER_NAME').split(',')
+    to_user_name = os.getenv('TG_TO_USER_NAME').split(',')
 
-    message_content = os.getenv('TG_MESSAGE_CONTENT')
+    # message_content = os.getenv('TG_MESSAGE_CONTENT')
+    message_content = '/checkin'
 
     session_name = 'unut_CheckIn'
 
     client = TelegramClient(session_name, api_id, api_hash)
     client.start()
 
-    for to_user_name in to_user_name_arr:
-        client.send_message(to_user_name, message_content)
-        time.sleep(5)
-        client.send_read_acknowledge(to_user_name)
-        print('发动消息给'+to_user_name.replace('@','')+'成功')
+    client.send_message(to_user_name, message_content)
+    time.sleep(5)
+    client.send_read_acknowledge(to_user_name)
+    print('发动消息给'+to_user_name.replace('@','')+'成功')
     
     client.session.save()
 
